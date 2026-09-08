@@ -8,4 +8,4 @@ This repository contains the source for my personal academic website.
 - `index.html` — main site content
 - `style.css` — responsive visual styling
 - `script.js` — small dynamic behaviour
-- `assets/CV_Adrian_Perez_Herrero.pdf` — downloadable CV
+- `assets/CV_AdrianPerezHerrero.pdf` — downloadable CV

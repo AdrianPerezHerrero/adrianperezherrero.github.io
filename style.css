@@ -91,16 +91,13 @@ img{max-width:100%}
 .button.ghost{background:rgba(255,255,255,.03);color:var(--text)}
 .hero-note{padding:18px 18px 20px;border-radius:22px;position:relative;overflow:hidden;background:linear-gradient(180deg, rgba(17,27,34,.85), rgba(8,16,21,.96));border:1px solid var(--line-strong)}
 .panel-topline{display:flex;justify-content:space-between;color:#9eb5bf;margin-bottom:14px}
-.note-grid{position:absolute;inset:0;background:
-linear-gradient(rgba(120,170,190,.08) 1px, transparent 1px),
-linear-gradient(90deg, rgba(120,170,190,.08) 1px, transparent 1px);
-background-size:24px 24px;mask-image:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.08));pointer-events:none}
-.hero-note-signal{display:block;width:100%;height:auto;position:relative;z-index:1;border-radius:12px;background:rgba(8,14,18,.35);border:1px solid rgba(138,191,206,.12)}
-.signal{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.signal-a{stroke:#7fd5c4;stroke-width:4.2;filter:drop-shadow(0 0 12px rgba(127,213,196,.15))}
-.signal-b{stroke:#ffb36a;stroke-width:2.3;opacity:.82}
-.signal-c{stroke:#5b8fa0;stroke-width:1.8;opacity:.78}
-.hero-note p{position:relative;z-index:1;margin:16px 0 0;color:#d7e4ea;font-size:15px;line-height:1.7}
+
+
+
+
+
+
+
 .section{padding:56px 0}
 .section-intro{padding-top:40px}
 .section-head{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
@@ -182,3 +179,13 @@ background-size:24px 24px;mask-image:linear-gradient(180deg, rgba(0,0,0,.45), rg
 }
 /* Keep the canvas between the page background and readable content. */
 main, .site-footer {position:relative;z-index:2}
+
+/* Thesis-derived introductory questions, replacing decorative artwork */
+.hero h1{font-size:clamp(2.65rem,5.1vw,4.95rem);line-height:1.04}
+.hero-note{padding:20px 20px 22px}
+.hero-note-intro{margin:0 0 16px;color:#d7e4ea;font-size:15px;line-height:1.7}
+.query-list{margin:0;padding-left:20px;display:grid;gap:12px;color:#d7e4ea}
+.query-list li{padding-left:4px;font-size:14px;line-height:1.65}
+.query-list strong{color:#eef8fb}
+.hero-quote{margin:20px 0 0;padding:16px 18px;border-left:2px solid rgba(120,210,193,.52);background:rgba(255,255,255,.03);color:#cedde3;font-size:14px;line-height:1.7}
+.figure-frame img,.software-figure img{border-radius:6px}

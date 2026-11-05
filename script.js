@@ -18,24 +18,6 @@ if (toggle && nav) {
   });
 }
 
-// Fallback for remote figures.
-document.querySelectorAll('img.remote-figure').forEach((img) => {
-  img.addEventListener('error', () => {
-    if (img.dataset.fallback && !img.dataset.swapped) {
-      img.dataset.swapped = 'true';
-      img.src = img.dataset.fallback;
-      img.alt = 'Illustrative fallback image. See linked documentation for the original figure.';
-      const figcaption = img.closest('figure')?.querySelector('figcaption');
-      if (figcaption) {
-        const note = document.createElement('span');
-        note.className = 'fallback-note';
-        note.textContent = 'Preview unavailable locally.';
-        figcaption.prepend(note);
-      }
-    }
-  });
-});
-
 // Scroll reveal.
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const revealItems = document.querySelectorAll('.reveal');
@@ -71,8 +53,8 @@ if (canvas) {
     { amp: 26, freq: 0.014, speed: 1.1, offset: 6.2, y: 0.81, color: 'rgba(255, 179, 106, 0.14)', width: 1.2 }
   ];
 
-  const particles = Array.from({ length: 26 }, (_, i) => ({
-    x: (i / 26) + Math.random() * 0.05,
+  const particles = Array.from({ length: 18 }, (_, i) => ({
+    x: (i / 18) + Math.random() * 0.05,
     y: Math.random(),
     r: 1 + Math.random() * 2.2,
     drift: 0.05 + Math.random() * 0.1,
@@ -89,28 +71,6 @@ if (canvas) {
     canvas.style.width = width + 'px';
     canvas.style.height = height + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-
-  function drawGrid() {
-    ctx.save();
-    ctx.strokeStyle = 'rgba(140, 185, 205, 0.05)';
-    ctx.lineWidth = 1;
-    const spacing = 48;
-    const yShift = -(scrollY * 0.04 % spacing);
-    const xShift = -(scrollY * 0.015 % spacing);
-    for (let x = xShift; x < width; x += spacing) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, height);
-      ctx.stroke();
-    }
-    for (let y = yShift; y < height; y += spacing) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(width, y);
-      ctx.stroke();
-    }
-    ctx.restore();
   }
 
   function drawLine(line, t) {
@@ -141,7 +101,6 @@ if (canvas) {
 
   function render(t) {
     ctx.clearRect(0, 0, width, height);
-    drawGrid();
     lines.forEach((line) => drawLine(line, t));
     drawParticles(t);
     if (!reducedMotion) rafId = requestAnimationFrame(render);

@@ -3,18 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Adrián Pérez Herrero — probabilistic machine learning, Bayesian nonparametric models, signal dynamics and scientific applications.">
+  <meta name="description" content="Adrián Pérez Herrero — probabilistic machine learning for structured signals and time series.">
   <meta name="theme-color" content="#091015">
-  <meta property="og:title" content="Adrián Pérez Herrero — Bayesian nonparametric dynamical clustering">
-  <meta property="og:description" content="Research on probabilistic machine learning for structured signals and dynamical data.">
-  <meta property="og:type" content="website">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="style.css">
   <title>Adrián Pérez Herrero</title>
 </head>
 <body>
   <canvas id="signal-field" aria-hidden="true"></canvas>
-  <div class="page-noise" aria-hidden="true"></div>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -26,10 +21,10 @@
       </a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu</button>
       <nav class="nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="#work">Work</a>
+        <a href="#research">Research</a>
         <a href="#software">bnomad</a>
         <a href="#papers">Papers</a>
-        <a href="#about">About</a>
+        <a href="#background">Background</a>
         <a href="#contact">Contact</a>
         <a class="nav-cv" href="assets/CV_AdrianPerezHerrero.pdf" target="_blank" rel="noopener">CV ↗</a>
       </nav>
@@ -38,184 +33,132 @@
 
   <main id="main">
     <section class="hero shell" id="home">
-      <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="eyebrow-dot"></span> A Coruña / Santiago de Compostela · probabilistic machine learning</p>
-        <h1>Bayesian nonparametric<br>dynamical clustering<br><em>of time series.</em></h1>
-        <p class="hero-lead">I work on structured time-series problems in which observations arrive sequentially, may be temporally misaligned, and may arise from an unknown number of evolving behaviours.</p>
-        <p class="hero-text">My PhD focused on combining hierarchical Dirichlet processes, Gaussian-process representations and dynamical models to address that setting, first in ECG morphology and later in other scientific signals.</p>
-        <div class="hero-links">
-          <a class="button primary" href="#work">Selected work</a>
-          <a class="button ghost" href="assets/CV_AdrianPerezHerrero.pdf" target="_blank" rel="noopener">CV · PDF</a>
-        </div>
+      <p class="eyebrow">Probabilistic machine learning · time series · scientific applications</p>
+      <h1>Bayesian models for<br>structured time series</h1>
+      <p class="hero-lead">I work on probabilistic models for sequential data in which observations may be misaligned, may evolve over time, and may come from an unknown number of patterns.</p>
+      <p class="hero-text">My research combines Bayesian nonparametrics, Gaussian processes and dynamical models, with applications in ECG analysis, biomedical machine learning, wave spectra and trajectory clustering.</p>
+      <div class="hero-links">
+        <a class="button primary" href="#research">Research</a>
+        <a class="button ghost" href="assets/CV_AdrianPerezHerrero.pdf" target="_blank" rel="noopener">CV · PDF</a>
       </div>
-
-      <aside class="hero-note reveal glass-panel" aria-label="Inferential questions from Chapter 3">
-        <div class="panel-topline">
-          <span>Chapter 3 · inferential questions</span>
-          <span>PhD thesis</span>
-        </div>
-        <p class="hero-note-intro">The modelling task was to turn a sequential clustering intuition into a small set of inferential questions.</p>
-        <ol class="query-list">
-          <li><strong>Prediction.</strong> What should each existing cluster look like when a new segment arrives, and how certain are we about that prediction?</li>
-          <li><strong>Assignment.</strong> Should the new segment be assigned to one of the existing clusters, or should a new one be created?</li>
-          <li><strong>Alignment.</strong> Should the observation be aligned to better fit the existing clusters, without confusing timing variation with genuine morphological change?</li>
-          <li><strong>Update.</strong> Once assigned, how should the cluster representation be updated without drifting away from what it meant before?</li>
-        </ol>
-        <blockquote class="hero-quote">“The system must be flexible enough to track slow physiological drift within a pattern class, yet robust enough to recognise when a truly different pattern has emerged.”</blockquote>
-      </aside>
     </section>
 
-    <section class="section shell section-intro reveal" id="work">
-      <div class="section-head">
-        <p class="kicker">Selected work</p>
-        <h2>Background and<br><em>applications.</em></h2>
+    <section class="section shell section-narrow reveal" id="research">
+      <p class="section-kicker">Research</p>
+      <h2>Research interests</h2>
+      <p class="section-text">In many structured time-series problems, the same issues keep appearing: what belongs to an existing pattern, when a new pattern should be introduced, how temporal variation should be aligned, and how a cluster should be updated as new observations arrive.</p>
+      <div class="question-grid">
+        <div class="question-card">How should an incoming observation be compared with existing clusters?</div>
+        <div class="question-card">When is a new cluster more appropriate than reusing an old one?</div>
+        <div class="question-card">How much variability is due to temporal misalignment rather than morphology?</div>
+        <div class="question-card">How should the representation evolve without losing interpretability?</div>
       </div>
-      <p class="section-summary">The same modelling questions appear across ECG morphology, clinical decision support, and environmental time series: how to represent a pattern, how to track it through time, and how to separate meaningful structure from timing variability and noise.</p>
     </section>
 
-    <section class="feature shell reveal">
-      <div class="feature-copy">
-        <span class="feature-label">01 · Methodology</span>
-        <h3>From morphology to generative model</h3>
-        <p>The methodological core of my doctoral work is the HDP–GPC framework: a model that combines a hierarchical Dirichlet process for unknown model complexity, Gaussian-process emissions for functional representation, and dynamical structure for sequential evolution.</p>
-        <p>The motivating problem came from ECG morphology. Beats of the same underlying class may drift gradually, genuinely new morphologies may appear abruptly, and segmentation errors can introduce temporal misalignment. Modelling these effects jointly was the central design requirement.</p>
-        <div class="inline-links">
-          <a href="https://arxiv.org/abs/2510.06919v2" target="_blank" rel="noopener">Preprint ↗</a>
-          <a href="https://github.com/AdrianPerezHerrero/bnomad" target="_blank" rel="noopener">Code ↗</a>
-        </div>
-      </div>
-      <figure class="figure-panel">
-        <div class="figure-frame glass-panel">
-          <img src="assets/thesis_morphologies.svg" alt="Figures from Chapter 3 of the thesis showing multiple ECG morphologies and the unknown number of classes problem" loading="lazy">
-        </div>
-        <figcaption><strong>Chapter 3 motivation.</strong> Figures 3.1 and 3.2 from the thesis illustrate two parts of the problem: variability within and across ECG morphologies, and the fact that the number of distinct classes is not known beforehand.</figcaption>
+    <section class="section shell section-narrow reveal">
+      <p class="section-kicker">Representative signals</p>
+      <h2>Structured signals</h2>
+      <p class="section-text">The core modelling difficulty is to represent structured variability without fixing the number of patterns in advance or confusing temporal deformation with genuinely different behaviour.</p>
+      <figure class="figure-block">
+        <img src="assets/thesis_morphologies.svg" alt="Schematic waveform morphologies illustrating variability between signal families" loading="lazy">
+        <figcaption>Schematic waveform families illustrating the clustering and alignment problem.</figcaption>
       </figure>
     </section>
 
-    <section class="cards shell reveal">
-      <article class="info-card glass-panel">
-        <span class="feature-label">02 · Biomedical application</span>
-        <h3>Generative ECG modelling for Takotsubo syndrome</h3>
-        <p>In collaboration with Cambridge and Karolinska researchers, I worked on generative ECG modelling to help distinguish Takotsubo syndrome from myocardial infarction. The emphasis was not only predictive discrimination, but also identifying waveform features that could be interpreted clinically.</p>
-        <a href="https://www.ssrn.com/abstract=5702401" target="_blank" rel="noopener">SSRN preprint ↗</a>
-      </article>
-      <article class="info-card glass-panel">
-        <span class="feature-label">03 · Environmental application</span>
-        <h3>Wave spectra and event structure</h3>
-        <p>I also applied the same modelling ideas to directional ocean-wave spectra, where the aim was to identify structured regimes from sparse buoy observations and use them to reason about swell events, correspondence across sensors and coastal arrival behaviour.</p>
-        <a href="https://github.com/AdrianPerezHerrero/HDP-GPC/tree/ocean_wave_directional" target="_blank" rel="noopener">Research code ↗</a>
-      </article>
-      <article class="info-card glass-panel">
-        <span class="feature-label">04 · Current direction</span>
-        <h3>Latent structure in scientific machine learning</h3>
-        <p>I am interested in how probabilistic models and latent representations can be used to reveal meaningful structure in scientific data, beyond prediction alone, and how such representations can support downstream reasoning.</p>
-        <span class="card-note">Current research direction.</span>
-      </article>
+    <section class="section shell reveal">
+      <p class="section-kicker">Current themes</p>
+      <div class="theme-grid">
+        <article class="theme-card">
+          <h3>Bayesian nonparametric clustering</h3>
+          <p>Flexible models that let the number of active patterns adapt to the data.</p>
+        </article>
+        <article class="theme-card">
+          <h3>Gaussian-process representations</h3>
+          <p>Functional models for uncertain shapes, alignment and latent structure.</p>
+        </article>
+        <article class="theme-card">
+          <h3>Dynamical structure</h3>
+          <p>State-space formulations for pattern evolution and regime changes over time.</p>
+        </article>
+      </div>
     </section>
 
-    <section class="software-section shell reveal" id="software">
-      <div class="software-copy">
-        <p class="kicker">Software</p>
-        <h2>bnomad</h2>
-        <p class="software-lead">Repository accompanying the methodological work.</p>
-        <p><strong>bnomad</strong> is the main codebase behind the HDP–GPC framework. It contains the implementation, examples, reproducibility material and documentation. The installable package remains <code>hdpgpc</code>, while the repository is where the ongoing research code is organised.</p>
-        <p>The repository brings together the methodological side and the applied work: ECG workflows, clustering reports, wave-spectra analyses, and examples that make the inference choices more transparent.</p>
-        <div class="inline-links">
-          <a href="https://github.com/AdrianPerezHerrero/bnomad" target="_blank" rel="noopener">Repository ↗</a>
-          <a href="https://github.com/AdrianPerezHerrero/bnomad/blob/main/README.md" target="_blank" rel="noopener">Readme ↗</a>
-        </div>
+    <section class="section shell section-narrow reveal" id="software">
+      <p class="section-kicker">Software</p>
+      <h2>bnomad</h2>
+      <p class="section-text">bnomad is the main repository behind this line of work. It gathers the HDP-GPC implementation, examples, reproducibility material and application notes.</p>
+      <div class="inline-links centered-links">
+        <a href="https://github.com/AdrianPerezHerrero/bnomad" target="_blank" rel="noopener">Repository ↗</a>
+        <a href="https://github.com/AdrianPerezHerrero/bnomad/blob/main/README.md" target="_blank" rel="noopener">Readme ↗</a>
       </div>
-      <figure class="software-figure glass-panel">
-        <img src="assets/wave_events.svg" alt="Figure from the thesis showing wave-height time series segmented by inferred clustering assignments" loading="lazy">
-        <figcaption><strong>Application example.</strong> Figure 6.9 from the thesis shows how the inferred regimes can be used to segment buoy records into discrete wave events, turning clustering into a structured intermediate representation for downstream analysis.</figcaption>
+      <figure class="figure-block wide-figure">
+        <img src="https://raw.githubusercontent.com/AdrianPerezHerrero/HDP-GPC/pedestrian_clustering/hdpgpc_clustered_trajectories_from_labels.png" decoding="async" alt="Pedestrian trajectory clustering showing observed routes and representative route families" loading="lazy">
+        <figcaption>Pedestrian trajectory clustering from PB-CAM6 (9 January 2023). Coloured trajectories and their inferred Gaussian-process route representatives. <a href="https://github.com/AdrianPerezHerrero/HDP-GPC/blob/pedestrian_clustering/hdpgpc_clustered_trajectories_from_labels.png" target="_blank" rel="noopener">Source image ↗</a></figcaption>
       </figure>
     </section>
 
-    <section class="papers-section shell reveal" id="papers">
-      <div class="section-head slim">
-        <p class="kicker">Papers</p>
-        <h2>Selected writing.</h2>
-      </div>
+    <section class="section shell section-narrow reveal" id="papers">
+      <p class="section-kicker">Selected papers</p>
+      <h2>Publications</h2>
       <div class="paper-list">
-        <article class="paper-row glass-panel">
-          <div class="paper-year">2026</div>
+        <article class="paper-row">
+          <span class="paper-year">2026</span>
           <div>
-            <span class="paper-type">Conference abstract · European Heart Journal</span>
             <h3>Generative machine learning applied to the electrocardiogram (ECG) to uncover relevant ECG features in distinguishing takotsubo syndrome from myocardial infarction</h3>
-            <p>F. Håkansson, P. Félix, E. Bodin, A. Gemvik, T. Olsson, J. Presedo, P. Tornvall, C. H. Ek, A. Pérez-Herrero</p>
+            <p>European Heart Journal · conference abstract</p>
             <a href="https://doi.org/10.1093/eurheartj/ehag785.4339" target="_blank" rel="noopener">DOI ↗</a>
           </div>
         </article>
-        <article class="paper-row glass-panel">
-          <div class="paper-year">2025</div>
+        <article class="paper-row">
+          <span class="paper-year">2025</span>
           <div>
-            <span class="paper-type">Preprint · arXiv</span>
             <h3>Bayesian Nonparametric Dynamical Clustering of Time Series</h3>
-            <p>A. Pérez-Herrero, P. Félix, J. Presedo, C. H. Ek</p>
+            <p>arXiv preprint</p>
             <a href="https://arxiv.org/abs/2510.06919v2" target="_blank" rel="noopener">arXiv ↗</a>
           </div>
         </article>
-        <article class="paper-row glass-panel">
-          <div class="paper-year">2025</div>
+        <article class="paper-row">
+          <span class="paper-year">2025</span>
           <div>
-            <span class="paper-type">Preprint · SSRN</span>
             <h3>Generative Machine Learning-Electrocardiography to Differentiate Takotsubo Syndrome from Myocardial Infarction</h3>
-            <p>A. Pérez-Herrero, P. Félix, E. Bodin, A. Gemvik, T. Olsson, J. Presedo, P. Tornvall, C. H. Ek, F. Håkansson</p>
+            <p>SSRN preprint</p>
             <a href="https://www.ssrn.com/abstract=5702401" target="_blank" rel="noopener">SSRN ↗</a>
           </div>
         </article>
-        <article class="paper-row glass-panel">
-          <div class="paper-year">2022</div>
+        <article class="paper-row">
+          <span class="paper-year">2022</span>
           <div>
-            <span class="paper-type">Preprint · arXiv</span>
             <h3>Parameterisation of state duration in Hidden semi-Markov Models: an application in electrocardiography</h3>
-            <p>A. Pérez Herrero, P. Félix Lamas, J. M. Rodríguez Presedo</p>
+            <p>arXiv preprint</p>
             <a href="https://arxiv.org/abs/2211.09478" target="_blank" rel="noopener">arXiv ↗</a>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="about-section shell reveal" id="about">
-      <div class="section-head slim">
-        <p class="kicker">About</p>
-        <h2>Background.</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-copy glass-panel">
-          <p>My training is in mathematics. I later moved into artificial intelligence research and completed a PhD at the University of Santiago de Compostela in 2026.</p>
-          <p>Across the PhD I worked on Bayesian nonparametrics, Gaussian processes, sequential inference, ECG analysis, and environmental time series. I also taught Automata Theory and Formal Languages, and co-supervised student projects.</p>
-          <p>I am especially interested in probabilistic methods that help describe structure in scientific data and support interpretable downstream analysis.</p>
-        </div>
-        <div class="about-facts glass-panel">
-          <div class="fact"><span class="fact-label">Background</span><strong>BSc in Mathematics</strong></div>
-          <div class="fact"><span class="fact-label">Training</span><strong>MSc in AI Research</strong></div>
-          <div class="fact"><span class="fact-label">PhD</span><strong>Artificial Intelligence, USC (2026)</strong></div>
-          <div class="fact"><span class="fact-label">Interests</span><strong>Bayesian ML · Gaussian processes · dynamical systems</strong></div>
-          <div class="fact"><span class="fact-label">Research visit</span><strong>University of Cambridge, 2024</strong></div>
-          <div class="fact"><span class="fact-label">Invited talk</span><strong>Gaussian Process Summer School, 2026</strong></div>
-        </div>
+    <section class="section shell section-narrow reveal" id="background">
+      <h2>Background</h2>
+      <p class="section-text">My training is in mathematics. I later moved into artificial intelligence research and completed a PhD at the University of Santiago de Compostela in 2026. Across that work I focused on Bayesian nonparametrics, Gaussian processes, sequential inference and their applications to biomedical and environmental data.</p>
+      <div class="facts-grid">
+        <div class="fact-box"><span>Education</span><strong>BSc in Mathematics</strong></div>
+        <div class="fact-box"><span>Training</span><strong>MSc in AI Research</strong></div>
+        <div class="fact-box"><span>PhD</span><strong>Artificial Intelligence, USC</strong></div>
+        <div class="fact-box"><span>Visit</span><strong>University of Cambridge, 2024</strong></div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer shell reveal" id="contact">
-    <div class="footer-copy">
-      <p class="kicker">Contact</p>
-      <h2>Contact.</h2>
-      <p>I am open to research collaborations, postdoctoral opportunities and related discussions in probabilistic machine learning and scientific applications.</p>
-    </div>
-    <div class="footer-links glass-panel">
+    <h2>Contact</h2>
+    <p class="section-text">I am open to research collaborations, postdoctoral opportunities and related discussions in probabilistic machine learning and scientific applications.</p>
+    <div class="footer-links">
       <a href="mailto:adrianperezherrero1997@outlook.es">Email</a>
       <a href="https://github.com/AdrianPerezHerrero" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/adrian-perez-herrero" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://orcid.org/0000-0003-2085-1075" target="_blank" rel="noopener">ORCID</a>
       <a href="assets/CV_AdrianPerezHerrero.pdf" target="_blank" rel="noopener">CV · PDF</a>
     </div>
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Adrián Pérez Herrero</span>
-      <span>Bayesian ML · scientific applications</span>
-    </div>
+    <div class="footer-bottom">© <span id="year"></span> Adrián Pérez Herrero</div>
   </footer>
 
   <script src="script.js" defer></script>

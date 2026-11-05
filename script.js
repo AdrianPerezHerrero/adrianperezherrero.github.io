@@ -56,3 +56,18 @@ if (canvas?.getContext) {
   resize();
   resume();
 }
+
+// Animate sections on entering the viewport. The text is always visible.
+if (!prefersReducedMotion.matches && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.animate([
+        { opacity: .70, transform: 'translateY(16px)' },
+        { opacity: 1, transform: 'translateY(0)' }
+      ], { duration: 740, easing: 'cubic-bezier(.2,.75,.25,1)', fill: 'none' });
+      observer.unobserve(entry.target);
+    }
+  }, { rootMargin: '0px 0px -7% 0px', threshold: .08 });
+  document.querySelectorAll('main section.reveal-block').forEach(el => observer.observe(el));
+}

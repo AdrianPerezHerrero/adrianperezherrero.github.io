@@ -3,164 +3,119 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Adrián Pérez Herrero — probabilistic machine learning for structured signals and time series.">
-  <meta name="theme-color" content="#091015">
+  <meta name="description" content="Adrián Pérez Herrero — probabilistic machine learning, Gaussian processes, dynamical systems and scientific applications.">
+  <meta name="theme-color" content="#0b1420">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
   <title>Adrián Pérez Herrero</title>
 </head>
+
 <body>
-  <canvas id="signal-field" aria-hidden="true"></canvas>
-
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="shell header-inner">
-      <a class="wordmark" href="#home" aria-label="Adrián Pérez Herrero, top of page">
-        <span class="wordmark-mark">APH</span>
-        <span class="wordmark-name">Adrián Pérez Herrero</span>
-      </a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">Menu</button>
-      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="#software">bnomad</a>
-        <a href="#papers">Papers</a>
-        <a href="#background">Background</a>
-        <a href="#contact">Contact</a>
-        <a class="nav-cv" href="assets/CV_AdrianPerezHerrero.pdf" target="_blank" rel="noopener">CV ↗</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-    <section class="hero shell" id="home">
-      <p class="eyebrow">Probabilistic machine learning · time series · scientific applications</p>
-      <h1>Bayesian models for<br>structured time series</h1>
-      <p class="hero-lead">I work on probabilistic models for sequential data in which observations may be misaligned, may evolve over time, and may come from an unknown number of patterns.</p>
-      <p class="hero-text">My research combines Bayesian nonparametrics, Gaussian processes and dynamical models, with applications in ECG analysis, biomedical machine learning, wave spectra and trajectory clustering.</p>
-      <div class="hero-links">
-        <a class="button primary" href="#research">Research</a>
-        <a class="button ghost" href="assets/CV_AdrianPerezHerrero.pdf" target="_blank" rel="noopener">CV · PDF</a>
-      </div>
-    </section>
-
-    <section class="section shell section-narrow reveal" id="research">
-      <p class="section-kicker">Research</p>
-      <h2>Research interests</h2>
-      <p class="section-text">In many structured time-series problems, the same issues keep appearing: what belongs to an existing pattern, when a new pattern should be introduced, how temporal variation should be aligned, and how a cluster should be updated as new observations arrive.</p>
-      <div class="question-grid">
-        <div class="question-card">How should an incoming observation be compared with existing clusters?</div>
-        <div class="question-card">When is a new cluster more appropriate than reusing an old one?</div>
-        <div class="question-card">How much variability is due to temporal misalignment rather than morphology?</div>
-        <div class="question-card">How should the representation evolve without losing interpretability?</div>
-      </div>
-    </section>
-
-    <section class="section shell section-narrow reveal">
-      <p class="section-kicker">Representative signals</p>
-      <h2>Structured signals</h2>
-      <p class="section-text">The core modelling difficulty is to represent structured variability without fixing the number of patterns in advance or confusing temporal deformation with genuinely different behaviour.</p>
-      <figure class="figure-block">
-        <img src="assets/thesis_morphologies.svg" alt="Schematic waveform morphologies illustrating variability between signal families" loading="lazy">
-        <figcaption>Schematic waveform families illustrating the clustering and alignment problem.</figcaption>
-      </figure>
-    </section>
-
-    <section class="section shell reveal">
-      <p class="section-kicker">Current themes</p>
-      <div class="theme-grid">
-        <article class="theme-card">
-          <h3>Bayesian nonparametric clustering</h3>
-          <p>Flexible models that let the number of active patterns adapt to the data.</p>
-        </article>
-        <article class="theme-card">
-          <h3>Gaussian-process representations</h3>
-          <p>Functional models for uncertain shapes, alignment and latent structure.</p>
-        </article>
-        <article class="theme-card">
-          <h3>Dynamical structure</h3>
-          <p>State-space formulations for pattern evolution and regime changes over time.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell section-narrow reveal" id="software">
-      <p class="section-kicker">Software</p>
-      <h2>bnomad</h2>
-      <p class="section-text">bnomad is the main repository behind this line of work. It gathers the HDP-GPC implementation, examples, reproducibility material and application notes.</p>
-      <div class="inline-links centered-links">
-        <a href="https://github.com/AdrianPerezHerrero/bnomad" target="_blank" rel="noopener">Repository ↗</a>
-        <a href="https://github.com/AdrianPerezHerrero/bnomad/blob/main/README.md" target="_blank" rel="noopener">Readme ↗</a>
-      </div>
-      <figure class="figure-block wide-figure">
-        <img src="https://raw.githubusercontent.com/AdrianPerezHerrero/HDP-GPC/pedestrian_clustering/hdpgpc_clustered_trajectories_from_labels.png" decoding="async" alt="Pedestrian trajectory clustering showing observed routes and representative route families" loading="lazy">
-        <figcaption>Pedestrian trajectory clustering from PB-CAM6 (9 January 2023). Coloured trajectories and their inferred Gaussian-process route representatives. <a href="https://github.com/AdrianPerezHerrero/HDP-GPC/blob/pedestrian_clustering/hdpgpc_clustered_trajectories_from_labels.png" target="_blank" rel="noopener">Source image ↗</a></figcaption>
-      </figure>
-    </section>
-
-    <section class="section shell section-narrow reveal" id="papers">
-      <p class="section-kicker">Selected papers</p>
-      <h2>Publications</h2>
-      <div class="paper-list">
-        <article class="paper-row">
-          <span class="paper-year">2026</span>
-          <div>
-            <h3>Generative machine learning applied to the electrocardiogram (ECG) to uncover relevant ECG features in distinguishing takotsubo syndrome from myocardial infarction</h3>
-            <p>European Heart Journal · conference abstract</p>
-            <a href="https://doi.org/10.1093/eurheartj/ehag785.4339" target="_blank" rel="noopener">DOI ↗</a>
-          </div>
-        </article>
-        <article class="paper-row">
-          <span class="paper-year">2025</span>
-          <div>
-            <h3>Bayesian Nonparametric Dynamical Clustering of Time Series</h3>
-            <p>arXiv preprint</p>
-            <a href="https://arxiv.org/abs/2510.06919v2" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </article>
-        <article class="paper-row">
-          <span class="paper-year">2025</span>
-          <div>
-            <h3>Generative Machine Learning-Electrocardiography to Differentiate Takotsubo Syndrome from Myocardial Infarction</h3>
-            <p>SSRN preprint</p>
-            <a href="https://www.ssrn.com/abstract=5702401" target="_blank" rel="noopener">SSRN ↗</a>
-          </div>
-        </article>
-        <article class="paper-row">
-          <span class="paper-year">2022</span>
-          <div>
-            <h3>Parameterisation of state duration in Hidden semi-Markov Models: an application in electrocardiography</h3>
-            <p>arXiv preprint</p>
-            <a href="https://arxiv.org/abs/2211.09478" target="_blank" rel="noopener">arXiv ↗</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section shell section-narrow reveal" id="background">
-      <h2>Background</h2>
-      <p class="section-text">My training is in mathematics. I later moved into artificial intelligence research and completed a PhD at the University of Santiago de Compostela in 2026. Across that work I focused on Bayesian nonparametrics, Gaussian processes, sequential inference and their applications to biomedical and environmental data.</p>
-      <div class="facts-grid">
-        <div class="fact-box"><span>Education</span><strong>BSc in Mathematics</strong></div>
-        <div class="fact-box"><span>Training</span><strong>MSc in AI Research</strong></div>
-        <div class="fact-box"><span>PhD</span><strong>Artificial Intelligence, USC</strong></div>
-        <div class="fact-box"><span>Visit</span><strong>University of Cambridge, 2024</strong></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer shell reveal" id="contact">
-    <h2>Contact</h2>
-    <p class="section-text">I am open to research collaborations, postdoctoral opportunities and related discussions in probabilistic machine learning and scientific applications.</p>
-    <div class="footer-links">
-      <a href="mailto:adrianperezherrero1997@outlook.es">Email</a>
-      <a href="https://github.com/AdrianPerezHerrero" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/adrian-perez-herrero" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://orcid.org/0000-0003-2085-1075" target="_blank" rel="noopener">ORCID</a>
-      <a href="assets/CV_AdrianPerezHerrero.pdf" target="_blank" rel="noopener">CV · PDF</a>
-    </div>
-    <div class="footer-bottom">© <span id="year"></span> Adrián Pérez Herrero</div>
-  </footer>
-
-  <script src="script.js" defer></script>
+<canvas id="signal-background" aria-hidden="true"></canvas>
+<a class="skip-link" href="#main">Skip to content</a>
+<main id="main">
+<header class="site-header" id="home">
+  <h1>Adrián Pérez Herrero</h1>
+  <p class="research-area">Probabilistic machine learning · Time series · Scientific applications</p>
+  <p class="affiliation">PhD in Artificial Intelligence · University of Santiago de Compostela (CiTIUS) · Galicia, Spain</p>
+  <nav class="links" aria-label="Personal links">
+    <a href="assets/CV_AdrianPerezHerrero.pdf">CV</a>
+    <a href="mailto:adrianperezherrero1997@outlook.es">Email</a>
+    <a href="https://github.com/AdrianPerezHerrero" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://orcid.org/0000-0003-2085-1075" target="_blank" rel="noopener noreferrer">ORCID</a>
+    <a href="https://www.linkedin.com/in/adrian-perez-herrero" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </nav>
+</header>
+<section id="research">
+  <h2>Research</h2>
+  <p>I study probabilistic representations of time series, particularly when observations may be misaligned in time, their underlying dynamics may change, and the number of distinct patterns is unknown. My work draws on Bayesian nonparametrics, Gaussian processes and latent dynamical systems.</p>
+  <p>These questions have led me to ECG analysis, generative modelling of clinical signals, directional ocean-wave spectra and pedestrian trajectories. I am also interested in whether learned representations can help investigate scientific structure, beyond predictive performance alone.</p>
+</section>
+<section id="software">
+    <h2>Software and applications</h2>
+    <ul class="rows">
+      <li>
+        <span class="when"><a href="https://github.com/AdrianPerezHerrero/bnomad">bnomad</a></span>
+        <span>Research code for Bayesian nonparametric clustering of time series, including the <code>hdpgpc</code> implementation, sequential inference, examples and reproducibility material.</span>
+      </li>
+      <li>
+        <span class="when"><a href="https://github.com/AdrianPerezHerrero/takotsubo">takotsubo</a></span>
+        <span>Interpretable machine learning and generative ECG modelling for differentiating Takotsubo syndrome from myocardial infarction.</span>
+      </li>
+      <li>
+        <span class="when"><a href="https://github.com/AdrianPerezHerrero/HDP-GPC/tree/ocean_wave_directional">Ocean waves</a></span>
+        <span>Clustering and dynamical analysis of directional wave spectra from sparse buoy observations.</span>
+      </li>
+    </ul>
+    
+  <figure class="research-figure">
+  <a class="figure-link" href="https://github.com/AdrianPerezHerrero/HDP-GPC/blob/pedestrian_clustering/hdpgpc_clustered_trajectories_from_labels.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full pedestrian clustering result on GitHub">
+    <img src="https://raw.githubusercontent.com/AdrianPerezHerrero/HDP-GPC/pedestrian_clustering/hdpgpc_clustered_trajectories_from_labels.png"
+         alt="Pedestrian trajectories grouped into clusters with representative trajectories from the HDP-GPC model"
+         loading="lazy" decoding="async" fetchpriority="low">
+  </a>
+  <figcaption>Pedestrian trajectory clustering using HDP-GPC. <a href="https://github.com/AdrianPerezHerrero/HDP-GPC/tree/pedestrian_clustering" target="_blank" rel="noopener noreferrer">Experiment and full-size figure</a>.</figcaption>
+</figure>
+</section>
+<section id="publications">
+    <h2>Publications</h2>
+    <ul class="rows">
+      <li>
+        <span class="when">2026</span>
+        <span>F. Håkansson, P. Félix, E. Bodin, A. Gemvik, T. Olsson, J. Presedo, P. Tornvall, C. H. Ek, <b>A. Pérez-Herrero</b>. Generative machine learning applied to the electrocardiogram (ECG) to uncover relevant ECG features in distinguishing takotsubo syndrome from myocardial infarction. <i>European Heart Journal</i> 47, ESC abstract supplement. Conference abstract. <a href="https://doi.org/10.1093/eurheartj/ehag785.4339">DOI</a></span>
+      </li>
+      <li>
+        <span class="when">2025</span>
+        <span><b>A. Pérez-Herrero</b>, P. Félix, J. Presedo, C. H. Ek. Bayesian Nonparametric Dynamical Clustering of Time Series. Preprint. <a href="https://arxiv.org/abs/2510.06919v2">arXiv:2510.06919</a></span>
+      </li>
+      <li>
+        <span class="when">2025</span>
+        <span><b>A. Pérez-Herrero</b>, P. Félix, E. Bodin, A. Gemvik, T. Olsson, J. Presedo, P. Tornvall, C. H. Ek, F. Håkansson. Generative Machine Learning-Electrocardiography to Differentiate Takotsubo Syndrome from Myocardial Infarction. Preprint. <a href="https://www.ssrn.com/abstract=5702401">SSRN:5702401</a></span>
+      </li>
+      <li>
+        <span class="when">2022</span>
+        <span><b>A. Pérez Herrero</b>, P. Félix Lamas, J. M. Rodríguez Presedo. Parameterisation of state duration in Hidden semi-Markov Models: an application in electrocardiography. Preprint. <a href="https://arxiv.org/abs/2211.09478">arXiv:2211.09478</a></span>
+      </li>
+    </ul>
+  </section>
+<section id="background">
+    <h2>Background</h2>
+    <ul class="rows">
+      <li>
+        <span class="when">2021–2026</span>
+        <span>PhD in Computer Science (Artificial Intelligence), University of Santiago de Compostela. Cum laude.</span>
+      </li>
+      <li>
+        <span class="when">2024</span>
+        <span>Visiting researcher, Computer Laboratory, University of Cambridge. Bayesian nonparametric modelling of ECG signals.</span>
+      </li>
+      <li>
+        <span class="when">2019–2020</span>
+        <span>MSc in Artificial Intelligence Research, UIMP and AEPIA. With honours. Thesis on hidden semi-Markov models for ECG analysis.</span>
+      </li>
+      <li>
+        <span class="when">2019–2020</span>
+        <span>Data analyst consultant, LIS-Solutions, Santander. Business intelligence and ETL projects.</span>
+      </li>
+      <li>
+        <span class="when">2015–2019</span>
+        <span>BSc in Mathematics, University of Cantabria. With honours.</span>
+      </li>
+    </ul>
+  </section>
+<section id="activities">
+  <h2>Teaching and other activities</h2>
+  <ul class="rows">
+    <li><span class="when">Teaching</span><span>Automata Theory and Formal Languages, University of Santiago de Compostela (2023–2025); co-supervision of four BSc and MSc theses.</span></li>
+    <li><span class="when">Talks</span><span>Gaussian Process Summer School, Manchester (2026); CBCML Gaussian Process Workshop and Accelerate group meetings, Cambridge (2024).</span></li>
+    <li><span class="when">Projects</span><span>Xunta de Galicia PhD fellowship (2022–2026); participation in SOSFood and XAI4SOC. Further details in the <a href="assets/CV_AdrianPerezHerrero.pdf">CV</a>.</span></li>
+  </ul>
+</section>
+<footer>
+  <p>I am open to postdoctoral research opportunities and scientific collaborations. <a href="mailto:adrianperezherrero1997@outlook.es">Get in touch</a>.</p>
+  <small>Last updated November 2026</small>
+</footer>
+</main>
 </body>
 </html>

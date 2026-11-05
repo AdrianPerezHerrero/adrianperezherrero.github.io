@@ -1,11 +1,10 @@
-# Adrián Pérez Herrero — GitHub Pages
+# Adrián Pérez Herrero — personal website
 
-This repository contains the source for my personal academic website.
+A minimal, framework-free academic site for GitHub Pages.
 
+- `index.html` — research profile and publications.
+- `style.css` — dark navy style, responsive and print-friendly.
+- `script.js` — subtle blue/orange scroll-reactive signals. Respects reduced-motion preferences.
+- `assets/` — CV and favicon (preserved from the existing repository).
 
-## Repository structure
-
-- `index.html` — main site content
-- `style.css` — responsive visual styling
-- `script.js` — small dynamic behaviour
-- `assets/CV_AdrianPerezHerrero.pdf` — downloadable CV
+Pedestrian clustering imagery is loaded from the public `HDP-GPC` repository's `pedestrian_clustering` branch. The background signals are decorative and are not experimental results.
